@@ -2,7 +2,7 @@
 
 Parodia política para navegador, en PC y celular. Se trabaron los ahorros de medio país con la caída de ueno bank. Salís a la calle con una marcha de vecinos, sumás gente en las puertas y espantás a los clones del caso.
 
-> **Es una parodia.** Los personajes son caricaturas hechas para el humor. Las causas judiciales del caso ueno siguen abiertas y nadie fue condenado. Ningún chiste afirma que alguien haya cometido un delito.
+> **Es una parodia**, sin relación con ueno bank ni con las personas caricaturizadas. Los personajes son caricaturas hechas para el humor. Las causas judiciales del caso ueno siguen abiertas y nadie fue condenado. Ningún chiste afirma que alguien haya cometido un delito.
 >
 > Si alguien te escribe prometiendo devolverte la plata por un link, es estafa. El BCP no manda links por WhatsApp. Consultá solo sus canales oficiales.
 
@@ -12,16 +12,16 @@ Parodia política para navegador, en PC y celular. Se trabaron los ahorros de me
 - Pasá por la puerta azul. Las rojas son el **corralito** (dividen) y la **comisión** (resta). Si le tirás volantes a una puerta de suma o resta, el número sube.
 - Destrabá los **cajeros "fuera de servicio"** a volantazos. Te dan vecinos, más ritmo o más presión.
 - Agarrá los regalos (paquetes rosados): paraguas, cacerolazo general, paro general, prensa en vivo, indignación o vecinos.
-- **Ojo con los reintegros falsos.** Aparecen al lado de un regalo verdadero: un cupón "50 %" o un WhatsApp con un link trucho. Tienen una palabra mal escrita y titilan. Si los agarrás, se va el 20 % de la marcha. El paraguas te protege.
+- **Ojo con los reintegros falsos.** Aparecen al lado de un regalo verdadero: un cupón verde "uen0+ REINTERGO 50 %" o un WhatsApp con un link trucho. Tienen una palabra mal escrita y titilan. Si los agarrás, se va el 20 % de la marcha. El paraguas te protege.
 - Al final de cada nivel aparece un jefe. Cuando se le termina el aguante, levanta su cartel y se va:
-  1. La Sucursal: **La App Caída** ("servicio no disponible")
-  2. El Shopping de las Promos: **El Reintegro Gigante**
-  3. El Banco Central: **Carlos Carvallo, el Banquero Giratorio**
-  4. La Bóveda: **Miguel Vázquez, el Dueño**
-  5. Frente al Congreso: **Santiago Peña, el Ex Accionista**
+  1. La Sucursal de ueno: **La App Caída de ueno** ("servicio no disponible")
+  2. El Palacio de López: **Santi Peña, el Ex Accionista** ("¡Vamos a estar mejor!")
+  3. El Quincho: **Horacio Cartes, el Patrón** (le soltó la mano)
+  4. El Banco Central: **Carlos Carvallo, el Banquero Giratorio**
+  5. La Bóveda del Grupo: **Miguel Vázquez, el Dueño**
 - Después de cada nivel elegís 1 de 3 tarjetas: una mejora que dura toda la partida o un arma nueva. El megáfono sale desde el nivel 1 y el cacerolazo desde el 3. El arma se cambia en la pausa.
 
-Nadie se lastima. Los clones no mueren: se espantan y se van corriendo.
+Los enemigos son clones de Santi (de traje con la banda, al teléfono pidiendo calma, o con la albirroja y el pulgar arriba) y directivos del Grupo con su credencial verde. Nadie se lastima: se espantan y se van corriendo, gritando frases como "¡Vamos a estar mejor!" o "¡Calma y prudencia!".
 
 ## Cómo está hecho
 
