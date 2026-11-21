@@ -27,7 +27,11 @@ Los enemigos son clones de Santi (de traje con la banda, al teléfono pidiendo c
 
 Es una versión del [Escuadrón Antiplaga](https://github.com/doldan-edison/escuadron-antiplaga), con el mismo motor y el mismo equilibrio. Todo está en `index.html`: canvas 2D, sin dependencias.
 
-Los personajes, la calle, los cajeros y los carteles se dibujan por código. Si se agrega una imagen en `arte/`, la reemplaza:
+Los clones, los directivos, cuatro jefes, los manifestantes y el decorado (lapacho, farol, bandera, cantero) son imágenes de `arte/`. Se generaron con IA en Google Flow como caricaturas tipo juguete, sobre fondo liso, y se recortaron con `herramientas/recortar.mjs` (necesita Node y ffmpeg). No se usó ninguna foto de las personas ni el logo de ueno.
+
+Todo lo que lleva letras se dibuja por código con los colores de ueno: la app caída, los cupones falsos, los cajeros, los carteles y los globos de lo que dice cada jefe. Si una imagen no carga, ese personaje también se dibuja por código.
+
+Dónde va cada imagen:
 
 | Qué | Dónde se pone la imagen |
 |---|---|

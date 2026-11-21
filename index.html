@@ -321,13 +321,13 @@ function persona(c,t,o){
 const PSZ=2;   // las personas se dibujan más grandes que su ancho de choque
 const SANTI={traje:'#1f2a44',corb:'#4a68b0',pelo:'#37373d',canas:'#6e6e76',raya:1};
 const ANT=[
-  {p:Object.assign({banda:1},SANTI),img:null,dice:'s',hp:1,w:.66,walk:2.2,bite:1,body:'#22325e'},
-  {p:Object.assign({banda:1,pose:'cel',boca:'nervioso'},SANTI),img:null,dice:'s',hp:.8,w:.6,walk:4.3,bite:1,body:'#4a5568'},
-  {p:{traje:'#2b2f36',corb:UV2,pelo:'#141414',gordo:1,gafete:1,pose:'maletin'},img:null,dice:'d',hp:9,w:1.12,walk:1.7,bite:3,body:'#2b2f36'},
-  {p:Object.assign({albi:1,pose:'pulgar',boca:'sonrisa'},SANTI),img:null,dice:'s',hp:.9,w:.62,walk:3.7,bite:1,zig:1.6,body:'#e23a2e'},
-  {p:{traje:'#3a4a5c',corb:UV2,pelo:'#5a3a22',gafete:1,pose:'cartel',cartel:[['TODO',15,UV3],['SÓLIDO',15,UV3]]},img:null,dice:'d',hp:2.5,w:.78,walk:2.2,bite:1,spit:1,body:'#2f8a2a'},
-  {p:{traje:'#2b2f36',corb:UV2,pelo:'#6a6a70',gordo:1,gafete:1,boca:'seria'},extra:'escudo',img:null,dice:'d',hp:30,w:1.3,walk:1.4,bite:5,gift:1,bar:1,body:'#5a7896'},
-  {p:{traje:'#15181f',corb:UV2,pelo:'#1a1a1a',gordo:1,gafete:1,lentes:'osc',boca:'seria',pose:'maletin'},img:null,dice:'d',hp:140,w:1.8,walk:1,bite:12,biteF:.25,gift:1,bar:1,body:'#15181f'}
+  {p:Object.assign({banda:1},SANTI),img:'arte/clon-santi.webp',dice:'s',hp:1,w:.66,walk:2.2,bite:1,body:'#22325e'},
+  {p:Object.assign({banda:1,pose:'cel',boca:'nervioso'},SANTI),img:'arte/clon-calma.webp',dice:'s',hp:.8,w:.6,walk:4.3,bite:1,body:'#4a5568'},
+  {p:{traje:'#2b2f36',corb:UV2,pelo:'#141414',gordo:1,gafete:1,pose:'maletin'},img:'arte/directivo.webp',dice:'d',hp:9,w:1.12,walk:1.7,bite:3,body:'#2b2f36'},
+  {p:Object.assign({albi:1,pose:'pulgar',boca:'sonrisa'},SANTI),img:'arte/santi-hincha.webp',sobre(c,w,h){c.fillStyle='#ffffff';rr(c,-w*.2,-h*.535,w*.4,h*.06,h*.02);c.fill();uTxt(c,'ueno',0,-h*.503,h*.055,'#2a5bd7');},dice:'s',hp:.9,w:.62,walk:3.7,bite:1,zig:1.6,body:'#e23a2e'},
+  {p:{traje:'#3a4a5c',corb:UV2,pelo:'#5a3a22',gafete:1,pose:'cartel',cartel:[['TODO',15,UV3],['SÓLIDO',15,UV3]]},img:'arte/vocero.webp',dice:'d',hp:2.5,w:.78,walk:2.2,bite:1,spit:1,body:'#2f8a2a'},
+  {p:{traje:'#2b2f36',corb:UV2,pelo:'#6a6a70',gordo:1,gafete:1,boca:'seria'},extra:'escudo',img:'arte/director-blindado.webp',dice:'d',hp:30,w:1.3,walk:1.4,bite:5,gift:1,bar:1,body:'#5a7896'},
+  {p:{traje:'#15181f',corb:UV2,pelo:'#1a1a1a',gordo:1,gafete:1,lentes:'osc',boca:'seria',pose:'maletin'},img:'arte/mega-directivo.webp',dice:'d',hp:140,w:1.8,walk:1,bite:12,biteF:.25,gift:1,bar:1,body:'#15181f'}
 ];
 const DICE={
   s:['¡Vamos a estar mejor!','¡Vamos a estar mejor!','¡Calma y prudencia!','¡El sistema es sólido!','¡Tip de ahorro!','¡Ya vendí mis acciones!','¡No fui yo!','¡Me voy!'],
@@ -347,7 +347,7 @@ function antFrames(A,im){
   A.fr=[-.05,0,.05,0].map((ang,i)=>mk(FS,FS,c=>{
     c.imageSmoothingQuality='high';c.translate(FS/2,FS*.96);
     c.fillStyle='rgba(0,0,0,.22)';ell(c,0,-FS*.02,w*.28,FS*.045);
-    c.rotate(ang);const q=i%2?.03:0;c.scale(1+q,1-q);c.drawImage(im,-w/2,-h,w,h);
+    c.rotate(ang);const q=i%2?.03:0;c.scale(1+q,1-q);c.drawImage(im,-w/2,-h,w,h);if(A.sobre)A.sobre(c,w,h);
   }));
   A.foto=true;A.fl=tint(A.fr[1],'#fff',.75);A.ice=null;
 }
@@ -397,13 +397,14 @@ const SOL=[0,1].map(f=>mk(90,120,(c,w,h)=>paintSoldier(c,w,h,f,0)));
 const SOLB=[0,1].map(f=>mk(90,120,(c,w,h)=>paintSoldier(c,w,h,f,1)));
 let SOLFPS=7;
 /* Imágenes de Flow para los dos manifestantes (src); si no hay o no cargan quedan los dibujos. */
-const MAN=[{arr:SOL,src:null},{arr:SOLB,src:null}];
+const MAN=[{arr:SOL,src:'arte/manifestante-a.webp'},{arr:SOLB,src:'arte/manifestante-b.webp',cartel:1}];
 function manFija(M){const im=new Image();im.onload=()=>{
   for(let f=0;f<2;f++)M.arr[f]=mk(150,200,c=>{
     c.imageSmoothingQuality='high';
     const h=186-f*5,w=h*im.naturalWidth/im.naturalHeight;
     c.fillStyle='rgba(0,0,0,.25)';ell(c,75,186,40,11);
     c.drawImage(im,75-w/2,192-h-f*3,w,h);
+    if(M.cartel){const t=192-h-f*3;c.fillStyle='#d52b1e';c.fillRect(75-w*.3,t+h*.05,w*.6,h*.035);c.fillStyle='#141a33';c.fillRect(75-w*.24,t+h*.115,w*.48,h*.03);}
   });
 };im.src=M.src;}
 for(const M of MAN)if(M.src)manFija(M);
@@ -451,12 +452,12 @@ function paintMaceta(c,w,h){
    Los carteles (2 y 4) llevan letras, así que quedan siempre por código. */
 const DECF=[paintLapacho,paintFarol,paintCartel('DEVOLVÉ','MI PLATA'),paintBandera,paintAviso,paintMaceta];
 const DEC=[
-  {w:2.6,h:3.3,cw:150,ch:190,rw:2.6,sway:.35,src:null},
-  {w:.55,h:3.6,cw:40,ch:220,rw:.55,sway:0,src:null},
+  {w:2.6,h:3.3,cw:150,ch:190,rw:2.9,sway:.3,src:'arte/lapacho.webp'},
+  {w:.55,h:3.6,cw:40,ch:220,rw:.95,sway:0,src:'arte/farol.webp'},
   {w:1.25,h:1.65,cw:120,ch:160,rw:1.25,sway:.25},
-  {w:1.4,h:2.4,cw:120,ch:200,rw:1.4,sway:.6,src:null},
+  {w:1.4,h:2.4,cw:120,ch:200,rw:2.3,sway:.25,src:'arte/bandera.webp'},
   {w:1.6,h:1.9,cw:150,ch:180,rw:1.6,sway:.2},
-  {w:1.5,h:1.25,cw:120,ch:100,rw:1.5,sway:.15,src:null}
+  {w:1.5,h:1.25,cw:120,ch:100,rw:1.7,sway:0,src:'arte/maceta.webp'}
 ];
 DEC.forEach((T,i)=>{T.img=mk(T.cw,T.ch,DECF[i]);});
 for(const T of DEC)if(T.src){const im=new Image();im.onload=()=>{T.img=im;T.foto=true;T.w=T.rw;T.h=T.rw*im.naturalHeight/im.naturalWidth;try{buildBackdrop();}catch(e){}};im.src=T.src;}
@@ -524,14 +525,14 @@ function pVazquez(c,t){persona(c,t,{traje:'#1d2230',corb:UV2,pelo:'#2a2420',gord
    fin = cartel que levanta al irse · ico = lo que tira. Los números son los del juego original, por nivel (mismo equilibrio). */
 const BOSS={
   app:{name:'La App Caída de ueno',fin:'¡Reiniciando…!',img:null,size:6.6,hw:1.45,adv:.3,sway:.55,cd:3.2,tele:1,cf:.2,sk:2,sum:6,sumType:0,shot:'#FA3E74',ico:'error',atk:['charge','summon','charge'],paint:pApp},
-  pena:{name:'Santi Peña, el Ex Accionista',fin:'¡RENUNCIO!',img:null,size:7.4,hw:1.35,adv:.3,sway:.9,cd:2.9,tele:.95,cf:.2,sk:2,sum:8,sumType:1,shot:'#ffffff',ico:'calma',atk:['spit3','summon','spit3','charge'],paint:pPena,
+  pena:{name:'Santi Peña, el Ex Accionista',fin:'¡RENUNCIO!',img:'arte/jefe-pena.webp',size:7.4,hw:1.35,adv:.3,sway:.9,cd:2.9,tele:.95,cf:.2,sk:2,sum:8,sumType:1,shot:'#ffffff',ico:'calma',atk:['spit3','summon','spit3','charge'],paint:pPena,
     delante(c,t){globo(c,t,['¡VAMOS A','ESTAR MEJOR!'],'#0038a8');}},
-  cartes:{name:'Horacio Cartes, el Patrón',fin:'¡Le solté la mano!',img:null,size:7.6,hw:1.2,adv:.34,sway:1.5,cd:2.5,tele:.72,cf:.22,sk:3,sum:8,sumType:1,shot:'#c8102e',ico:'panuelo',atk:['charge','charge','spit1','summon'],paint:pCartes,
+  cartes:{name:'Horacio Cartes, el Patrón',fin:'¡Le solté la mano!',img:'arte/jefe-cartes.webp',size:7.6,hw:1.2,adv:.34,sway:1.5,cd:2.5,tele:.72,cf:.22,sk:3,sum:8,sumType:1,shot:'#c8102e',ico:'panuelo',atk:['charge','charge','spit1','summon'],paint:pCartes,
     delante(c,t){globo(c,t,['ACOMPAÑAMOS','EL JUICIO'],'#c8102e');}},
-  carvallo:{name:'Carlos Carvallo, el Banquero Giratorio',fin:'¡RENUNCIO!',img:null,size:7.4,hw:1.5,adv:.32,sway:.8,cd:2.5,tele:.85,cf:.24,sk:3,sum:6,sumType:2,shot:'#f4f4f4',ico:'papel',atk:['spit5','charge','summon','spit3'],paint:pCarvallo,
+  carvallo:{name:'Carlos Carvallo, el Banquero Giratorio',fin:'¡RENUNCIO!',img:'arte/jefe-carvallo.webp',size:7.4,hw:1.5,adv:.32,sway:.8,cd:2.5,tele:.85,cf:.24,sk:3,sum:6,sumType:2,shot:'#f4f4f4',ico:'papel',atk:['spit5','charge','summon','spit3'],paint:pCarvallo,
     detras(c,t){c.fillStyle='rgba(120,170,220,.22)';ell(c,0,100,96,16);puertaGiratoria(c,t,false);c.fillStyle='#8a94a6';c.fillRect(-3,-108,6,206);},
     delante(c,t){puertaGiratoria(c,t,true);c.fillStyle='#2e3442';rr(c,-100,-134,200,24,6);c.fill();uTxt(c,'ueno',-46,-121,18,UV);txt(c,'→ BCP',34,-121,16,'#fff');}},
-  vazquez:{name:'Miguel Vázquez, el Dueño',fin:'¡Intervenido!',img:null,size:8,hw:1.6,adv:.28,sway:.6,cd:2.3,tele:.85,cf:.25,sk:3,sum:10,sumType:0,shot:'#5aa0ff',ico:'tarjeta',atk:['summonBig','spit5','charge','summon','spit3','charge'],paint:pVazquez,
+  vazquez:{name:'Miguel Vázquez, el Dueño',fin:'¡Intervenido!',img:'arte/jefe-vazquez.webp',size:8,hw:1.6,adv:.28,sway:.6,cd:2.3,tele:.85,cf:.25,sk:3,sum:10,sumType:0,shot:'#5aa0ff',ico:'tarjeta',atk:['summonBig','spit5','charge','summon','spit3','charge'],paint:pVazquez,
     delante(c,t){globo(c,t,['SOLVENCIA','5,56 %'],'#d52b1e');}}
 };
 /* Si un jefe tiene imagen (img) se usa esa; si falta o no carga, se dibuja con su función paint. */
