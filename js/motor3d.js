@@ -3,7 +3,7 @@
    directo del estado del juego, igual que antes con el lienzo 2D, y miles de piezas cuestan pocas llamadas.
    Coordenadas del juego: x a lo ancho de la calle, gz hacia adelante, y hacia arriba. En three es (x, y, -gz),
    con la cámara atrás y arriba de la marcha, mirando hacia adelante. */
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js';
+import * as THREE from '../lib/three.module.min.js';   // three.js r170 (licencia MIT, en lib/three.LICENSE.txt)
 export {THREE};
 export const TAU=Math.PI*2;
 export const clamp=(v,a,b)=>v<a?a:v>b?b:v;

@@ -44,7 +44,7 @@ Las escenas están en `js/escenas.js`. Los directivos que aparecen ahí son muñ
 
 ## Cómo está hecho
 
-Es una versión del [Escuadrón Antiplaga](https://github.com/doldan-edison/escuadron-antiplaga), con las mismas reglas y el mismo equilibrio, pero dibujada en 3D con [three.js](https://threejs.org) (licencia MIT, se carga desde jsDelivr).
+Es una versión del [Escuadrón Antiplaga](https://github.com/doldan-edison/escuadron-antiplaga), con las mismas reglas y el mismo equilibrio, pero dibujada en 3D con [three.js](https://threejs.org) r170. La biblioteca va incluida en `lib/` (licencia MIT, en `lib/three.LICENSE.txt`), así que el juego no depende de ningún servidor ajeno para dibujar.
 
 | Archivo | Qué tiene |
 |---|---|
